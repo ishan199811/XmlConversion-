@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="User" type="user"/>
+  <xs:annotation>
+    <xs:documentation xml:lang="en">
+      The author of a book.
+    </xs:documentation>
+    <xs:documentation xml:lang="fr">
+      Designe l'auteur d'un livre.
+    </xs:documentation>
+  </xs:annotation>
+  <xs:complexType name="fileDump">
+    <xs:sequence>
+      <xs:element name="base64Content" type="xs:string" minOccurs="0"/>
+      <xs:element name="base64FileName" type="xs:string" minOccurs="0"/>
+      <xs:element name="callInitiator" type="xs:string" minOccurs="0"/>
+      <xs:element name="callType" type="xs:string" minOccurs="0"/>
+      <xs:element name="channel" type="xs:string" minOccurs="0"/>
+      <xs:element name="corporateEmailId" type="xs:string" minOccurs="0"/>
+      <xs:element name="endTimeUtc" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="fileTransferStatus" type="xs:string" minOccurs="0"/>
+      <xs:element name="fileTransferedEnd" type="xs:string" minOccurs="0"/>
+      <xs:element name="loginName" type="xs:string" minOccurs="0"/>
+      <xs:element name="messageId" type="xs:string" minOccurs="0"/>
+      <xs:element name="messageType" type="xs:string" minOccurs="0"/>
+      <xs:element name="network" type="xs:string" minOccurs="0"/>
+      <xs:element name="participantEntered" type="xs:string" minOccurs="0"/>
+      <xs:element name="roomId" type="xs:string" minOccurs="0"/>
+      <xs:element name="startTimeUtc" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="status" type="xs:string" minOccurs="0"/>
+      <xs:element name="threadId" type="xs:string" minOccurs="0"/>
+      <xs:element name="userFileName" type="xs:string" minOccurs="0"/>
+      <xs:element name="vendor" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="role">
+    <xs:sequence>
+      <xs:element name="roleId" type="xs:string" minOccurs="0"/>
+      <xs:element name="roleName" type="xs:string" minOccurs="0"/>
+      
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="user">
+    <xs:sequence>
+      <xs:element name="Id" type="xs:long" minOccurs="0"/>
+      <xs:element name="Title" type="xs:string" minOccurs="0"/>
+      <xs:element name="Body" type="xs:string" minOccurs="0"/>
+      <xs:element name="UserId" type="xs:int"/>
+      <xs:element name="role" type="role" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

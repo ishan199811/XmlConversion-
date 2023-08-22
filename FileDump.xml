@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:fileDump xmlns:ns2="com.ApiCalling.smarshModel">
+    <base64Content>this is base 64 content</base64Content>
+    <corporateEmailId>ishan.sharma@engineersmind.com</corporateEmailId>
+    <loginName>Ishan</loginName>
+    <messageId>1</messageId>
+    <messageType>txt</messageType>
+    <roomId>2</roomId>
+</ns2:fileDump>

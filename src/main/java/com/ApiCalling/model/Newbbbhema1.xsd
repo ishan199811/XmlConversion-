@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <xsd:complexType name="fileDump">
+      <xsd:sequence>
+         <xsd:element name="base64Content" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="base64FileName" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="callInitiator" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="callType" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="channel" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="corporateEmailId" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="endTimeUtc" type="xsd:anySimpleType" minOccurs="0"/>
+         <xsd:element name="fileTransferStatus" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="fileTransferedEnd" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="loginName" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="messageId" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="messageType" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="network" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="participantEntered" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="roomId" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="startTimeUtc" type="xsd:anySimpleType" minOccurs="0"/>
+         <xsd:element name="status" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="threadId" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="userFileName" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="vendor" type="xsd:string" minOccurs="0"/>
+      </xsd:sequence>
+   </xsd:complexType>
+</xsd:schema>

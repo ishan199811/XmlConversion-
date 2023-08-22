@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <xsd:complexType name="user">
+      <xsd:sequence>
+         <xsd:element name="Id" type="xsd:long" minOccurs="0"/>
+         <xsd:element name="Title" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="Body" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="UserId" type="xsd:int"/>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:element name="User" type="user"/>
+</xsd:schema>

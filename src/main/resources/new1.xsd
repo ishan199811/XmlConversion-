@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="FileDump">
+<xs:annotation>
+<xs:documentation>This is the root eflement.</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:sequence>
+<xs:element ref="Version" maxOccurs="1" minOccurs="0"/>
+<xs:element name="Conversation" maxOccurs="unbounded">
+<xs:complexType>
+<xs:sequence>
+<xs:element ref="RoomID"/>
+<xs:element ref="StartTimeUTC"/>
+<xs:element ref="CallType" minOccurs="0"/>
+<xs:element ref="CallInitiator" minOccurs="0"/>
+<xs:element ref="Vendor" minOccurs="0"/>
+<xs:element ref="Network" minOccurs="0"/>
+<xs:element ref="Channel" minOccurs="0"/>
+<xs:choice maxOccurs="unbounded">
+<xs:element name="Invite">
+<xs:complexType>
+<xs:complexContent>
+<xs:extension base="InviteType"/>
+</xs:complexContent>
+</xs:complexType>
+</xs:element>
+<xs:element name="ParticipantEntered" type="ParticipantEntere
+dType"/>
+<xs:element name="ParticipantLeft" type="ParticipantLeftType"
+/>
+<xs:element name="Message" type="MessageType"/>
+<xs:element name="Audio" type="AudioType"/>
+<xs:element name="FileTransferStarted" type="FileTransferStar
+tedType"/>
+<xs:element name="FileTransferEnded" type="FileTransferEndedT
+ype"/>
+</xs:choice>
+<xs:element ref="EndTimeUTC"/>
+</xs:sequence>
+<xs:attribute name="Perspective" type="xs:string"/>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+<xs:attribute name="creation" type="xs:string"/>
+</xs:complexType>
+</xs:element>
+<xs:complexType name="InviteType">
+<xs:all>
+<xs:element name="InviterLoginName" type="xs:string"/>
+<xs:element ref="LoginName"/>
+<xs:element ref="DateTimeUTC"/>
+<xs:element name="Content" type="xs:string" minOccurs="0"/>
+<xs:element name="Base64Content" type="xs:base64Binary" minOccurs="0"/>
+<xs:element ref="CorporateEmailID" minOccurs="0"> 
+<xs:annotation>
+<xs:documentation>This element corresponds to the invitee's corporate 
+email address.</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:all>
+</xs:complexType>
+<xs:complexType name="ParticipantEnteredType">
+<xs:all>
+<xs:element ref="LoginName"/>
+<xs:element ref="DateTimeUTC"/>
+<xs:element name="InternalFlag" type="xs:string" minOccurs="0"/>
+<xs:element ref="CorporateEmailID" minOccurs="0"/> 
+</xs:all>
+</xs:complexType>
+<xs:complexType name="ParticipantLeftType">
+<xs:all>
+<xs:element ref="LoginName"/>
+<xs:element ref="DateTimeUTC"/>
+<xs:element name="InternalFlag" type="xs:string" minOccurs="0"/>
+<xs:element ref="CorporateEmailID" minOccurs="0"/> 
+</xs:all>
+</xs:complexType>
+<xs:complexType name="MessageType">
+<xs:all>
+<xs:element ref="LoginName"/>
+<xs:element ref="DateTimeUTC"/>
+<xs:element name="ThreadID" type="xs:string" minOccurs="0"/>
+<xs:element name="Content" type="xs:string"/>
+<xs:element name="Base64Content" type="xs:base64Binary" minOccurs="0"/>
+<xs:element name="MessageType" type="xs:string" minOccurs="0"/>
+<xs:element name="CorporateEmailID" type="xs:string" minOccurs="0"/>
+<xs:element name="MessageID" type="xs:string" minOccurs="0"/>
+<xs:element ref="Attributes" minOccurs="0">
+</xs:all>
+</xs:complexType>
+<xs:complexType name="AudioType">
+<xs:all>
+<xs:element ref="LoginName"/>
+<xs:element ref="DateTimeUTC"/>
+<xs:element ref="FileName"/>
+<xs:element ref="FileSize"/>
+<xs:element ref="FileType" minOccurs="0"/>
+Vantage 15.x
+XML Format for Chat Interactions Copyright © 2022 Smarsh Inc. 7
+<xs:element ref="RecordingDuration"/>
+<xs:element ref="CallDirection" minOccurs="0"/>
+<xs:element ref="RecordingDuration"/>
+<xs:element ref="CallDirection" minOccurs="0"/>
+<xs:element ref="AudioCodec" minOccurs="0"/>
+<xs:element ref="RecordingType" minOccurs="0"/>
+<xs:element ref="FileEventType" minOccurs="0"/>
+<xs:element ref="FileID"/>
+<xs:element ref="Attributes" minOccurs="0">
+<xs:annotation>
+<xs:documentation>Audio file attributes</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:all>
+</xs:complexType>
+<xs:complexType name="FileTransferStartedType">
+<xs:all>
+<xs:element ref="LoginName"/>
+<xs:element ref="DateTimeUTC"/>
+<xs:element name="UserFileName" type="xs:string"/>
+<xs:element name="Base64UserFileName" type="xs:base64Binary" minOccurs="0"/>
+<xs:element name="FileName" type="xs:string"/>
+<xs:element name="Base64FileName" type="xs:base64Binary" minOccurs="0"/>
+<xs:element ref="CorporateEmailID" minOccurs="0"/>
+<xs:element name="ThreadID" type="xs:string" minOccurs="0"/>
+<xs:element name="MessageID" type="xs:string" minOccurs="0"/> 
+</xs:all>
+</xs:complexType>
+<xs:complexType name="FileTransferEndedType">
+<xs:all>
+<xs:element ref="LoginName"/>
+<xs:element ref="DateTimeUTC"/>
+<xs:element name="UserFileName" type="xs:string"/>
+<xs:element name="Base64UserFileName" type="xs:base64Binary" minOccurs="0"/>
+<xs:element name="FileName" type="xs:string"/>
+<xs:element name="Base64FileName" type="xs:base64Binary" minOccurs="0"/>
+<xs:element ref="CorporateEmailID" minOccurs="0"/> 
+<xs:element name="Status" type="xs:string"/>
+<xs:element name="ThreadID" type="xs:string" minOccurs="0"/>
+<xs:element name="MessageID" type="xs:string" minOccurs="0"/>
+</xs:all>
+</xs:complexType>
+<xs:element name="Attributes">
+<xs:complexType>
+<xs:sequence>
+<xs:element ref="Attribute" maxOccurs="unbounded">
+<xs:annotation>
+<xs:documentation>Represents an attribute(name-value pair)</
+xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Attribute">
+<xs:complexType>
+<xs:sequence>
+<xs:element ref="Name">
+<xs:annotation>
+<xs:documentation>Attribute Name</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element ref="Value">
+<xs:annotation>
+<xs:documentation>Attribute Value</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Name">
+<xs:simpleType>
+<xs:restriction base="xs:string"/>
+</xs:simpleType>
+</xs:element>
+<xs:element name="Value" type="xs:string"/>
+<xs:element name="FileName" type="xs:string"/>
+<xs:element name="FileType" type="xs:string">
+<xs:annotation>
+<xs:documentation>The type of the file</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="RecordingDuration" type="xs:long">
+<xs:annotation>
+<xs:documentation>Recording Duration in MilliSeconds</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="FileSize" type="xs:long">
+<xs:annotation>
+<xs:documentation>File Size in bytes</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="CallDirection" type="CallDirection.types">
+<xs:annotation>
+<xs:documentation>Call Direction INTERNAL/INBOUND/OUTBOUND/EXTERNAL</
+xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:simpleType name="CallDirection.types">
+<xs:restriction base="xs:string">
+<xs:enumeration value="inbound"/>
+<xs:enumeration value="outbound"/>
+<xs:enumeration value="internal"/>
+<xs:enumeration value="external"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:element name="AudioCodec" type="AudioCodec.types">
+<xs:annotation>
+<xs:documentation>Audio Codec</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:simpleType name="AudioCodec.types">
+<xs:restriction base="xs:string">
+<xs:enumeration value="PCMU/8000"/>
+<xs:enumeration value="PCMA/8000"/>
+<xs:enumeration value="SILK/16000"/>
+<xs:enumeration value="SILK/8000"/>
+<xs:enumeration value="G722/8000"/>
+<xs:enumeration value="G722/8000/2"/>
+<xs:enumeration value="G7221/16000"/>
+<xs:enumeration value="AAL2-G726-32/8000"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:element name="RecordingType" type="RecordingType.types">
+<xs:annotation>
+<xs:documentation>Recording Type</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:simpleType name="RecordingType.types">
+<xs:restriction base="xs:string">
+<xs:enumeration value="outbound"/>
+<xs:enumeration value="inbound"/>
+<xs:enumeration value="mixed"/>
+<xs:enumeration value="conference"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:element name="FileEventType" type="FileEventType.types">
+<xs:annotation>
+<xs:documentation>File event type</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:simpleType name="FileEventType.types">
+<xs:restriction base="xs:string">
+<xs:enumeration value="inline"/>
+<xs:enumeration value="attachment"/>
+<xs:enumeration value="raw"/>
+<xs:enumeration value="media"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:element name="FileID" type="xs:string">
+<xs:annotation>
+<xs:documentation>Unique ID of the file</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="LoginName" type="xs:string"/>
+<xs:element name="DateTimeUTC" type="xs:long"/>
+<xs:element name="CallType" type="CallType.types">
+<xs:annotation>
+<xs:documentation>Call Type P2P/Conference etc.</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:simpleType name="CallType.types">
+<xs:restriction base="xs:string">
+<xs:enumeration value="p2p"/>
+<xs:enumeration value="conference"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:element name="CallInitiator" type="xs:string">
+<xs:annotation>
+<xs:documentation>LoginName of the person who initiated the call.</
+xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Version" type="xs:float">
+<xs:annotation>
+<xs:documentation>The XML Version</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Vendor" type="xs:string">
+<xs:annotation>
+<xs:documentation>Vendor Name</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Network" type="xs:string">
+<xs:annotation>
+<xs:documentation>Network Name</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="Channel" type="Channel.types">
+<xs:annotation>
+<xs:documentation>Channel Text/Audio</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:simpleType name="Channel.types">
+<xs:restriction base="xs:string">
+<xs:enumeration value="Text"/>
+<xs:enumeration value="Audio"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:element name="RoomID" type="xs:string"/>
+<xs:element name="StartTimeUTC" type="xs:long"/>
+<xs:element name="EndTimeUTC" type="xs:long"/>
+<xs:element name="CorporateEmailID" type="xs:string"/>
+</xs:schema>
